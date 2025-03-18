@@ -1,0 +1,34 @@
+from datetime import datetime
+
+# Tarihleri belirleme
+t11 = "01.01.2005"
+t12 = "12.30.2024"
+
+# Tarihleri parçalama
+tarih1 = t11.split('.')
+tarih2 = t12.split('.')
+
+yil1, ay1, gun1 = int(tarih1[-1]), int(tarih1[-2]), int(tarih1[-3])
+yil2, ay2, gun2 = int(tarih2[-1]), int(tarih2[-2]), int(tarih2[-3])
+
+print(yil1, ay1, gun1)
+print(yil2, ay2, gun2)
+
+# Kategoriler ve gazeteler
+kategoriler = ["spor", "sağlık", "dünya", "teknoloji"]
+gazeteler = [
+    "https://www.hurriyet.com.tr",
+    "https://www.haberler.com"
+]
+
+# URL oluşturma ve geçerli tarihler için döngü
+for gazete in gazeteler:
+    for kategori in kategoriler:
+        for yil in range(yil1, yil2 + 1):
+            for ay in range(1, 13):  # 1-12 arası aylar
+                for gun in range(1, 32):  # 1-31 arası günler
+                    try:
+                        tarih = datetime(yil, ay, gun)  # Geçerli bir tarih mi kontrol et
+                        print(f"{gazete}/{kategori}/{yil}-{ay:02d}-{gun:02d}")
+                    except ValueError:
+                        continue  # Geçersiz tarihleri atla
