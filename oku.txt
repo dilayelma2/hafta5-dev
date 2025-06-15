@@ -1,0 +1,1 @@
+Geniş çapta haber arşivlerine ulaşmak için tarih–kategori–gazete kombinasyonlrını otomatik üretmektir.
